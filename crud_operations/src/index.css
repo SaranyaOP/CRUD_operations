@@ -1,0 +1,120 @@
+.mybody{
+  background-color:#D5DBDB;
+  width: 100%;
+  height: 100vh;
+}
+.log-container{
+  width: 70%;
+  height: 70%;
+  margin: auto;
+  position: relative;
+  top: 15%;
+  bottom: 15%;
+  background:white;
+}
+.image_section{
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+.Limage{
+  width: 100%;
+  height: 100%;
+}
+.login-forms{
+  width: 100%;
+  height: 90%;
+  margin-top: 5%;
+  border-left: 0.5px solid rgb(171, 170, 170);
+}
+.login-content{
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 20px;
+}
+.login-btn{
+  background-color: rgb(4, 4, 96) !important;
+  color: white !important;
+  font-weight: bold;
+}
+.login-icon:hover{
+  color: rgb(249, 199, 18);
+}
+.login-btn:hover{
+  background-color: rgb(249, 199, 18) !important;
+  color: black !important;
+}
+.reg-link{
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+.reg-link:hover{
+  color: blue;
+ 
+}
+.reg-form{
+  width:40%;
+  margin: auto;
+  background-color: white;
+  top: 4%;
+  bottom: 4%;
+  position: relative;
+  padding: 20px 70px 10px;
+}
+.log-link{
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+.log-link:hover{
+  color: red;
+}
+.dash-header{
+  width:100%;
+  background-color: rgb(7, 7, 6);
+  padding: 20px;
+  text-align: center;
+  margin: 0px;
+  color: white;
+}
+.dash_img{
+  width:100%;
+  height: 50%;
+  padding: 30px;
+}
+.dash_button{
+  width:150px;
+  padding: 7px;
+  background-color: black;
+  color:white;
+  margin-top: 10px;
+  font-size: 17px;
+  border: none;
+}
+.dash_button:hover{
+  background-color: white;
+  color: black;
+}
+.logout{
+  font-size: 21px;
+  float: right;
+}
+.mytable{
+  width:80%;
+  margin: auto;
+}
+.update_btn{
+  width:150px;
+  background-color: rgb(12, 110, 12);
+  color: white;
+  border: none;
+  padding: 10px;
+}
+.edit_div{
+  width:75%;
+  margin: auto;
+  position: relative;
+  background-color: white;
+  top:6%;
+}
