@@ -8,46 +8,68 @@ const Login = () =>{
     const[lpassword,setLPassword] = useState("");
     const[userData,setUdata] = useState([]);
     const[msg,setMsg] = useState("");
-
-    const userLogin = () =>{
-
-        let formstatus = true;
-        var epattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if(! epattern.test(email)){
-            formstatus= false;
-        }else    
-         if(password == ""){
-            formstatus= false;
-        }
-
-        if(formstatus == true){
-
-            fetch(`http://localhost:1234/user?email=${email}&password=${password}`)
-            .then(response => response.json())
-            .then(data =>{
-               
-                if(data.length > 0){
-                 
-                    localStorage.setItem("id", data[0].id);
-                    localStorage.setItem("name", data[0].name);
-                    window.location.href="#/dashboard";
-                    window.location.reload();
-                  
-                }
-                else{
-                    setMsg("This email & password does not exist !")
-                    setEmail('')
-                    setPassword('')
-                }
-               
-            })
-        }else{
-            setMsg("Please Enter valid email & password");
-        }
-
+    const getUserdata = () =>{
+        fetch("http://localhost:1234/user")
+        .then(response => response.json())
+        .then(data =>{
+            setUdata(data);
+        })
+       
     }
-    
- 
+    const userLogin = () =>{
+       let passArray = [];
+        let emailArray = [];
+         let userArray = [...userData];
+         for(var i = 0; i < userArray.length; i++) {
+            var uArray = userArray[i]
+            for (const item in uArray) {
+                if(item == "email"){
+                    emailArray.push(uArray[item]);
+                }else if(item == "password"){
+                    passArray.push(uArray[item]);
+                }
+              }
+        }
+        setLEmail (emailArray);
+        setLPassword (passArray);
+        // console.log(lemail);
+        let emailStatus;
+        let passwordStatus;
+        emailArray.forEach(myFunction)
+        function myFunction(value){
+            if(email == value){
+                emailStatus = true;
+            }else if(email != value){
+                return;
+            }
+        }
+        passArray.forEach(myPassFunction)
+        function myPassFunction(value){
+            if(password == value){
+                passwordStatus = true;
+                console.log(password);
+                console.log("pass" + value);
+            }else if(password != value){
+                return;
+                // passwordStatus = false
+                // console.log("passfalse" + value);
+            }
+        }
+        console.log(passwordStatus);
+        console.log(emailStatus);
+        if(passwordStatus && emailStatus == true){
+            window.location.href="#/dashboard";
+            localStorage.setItem("email",email) ;
+            setEmail("");
+            setPassword("");
+        }else{
+            setMsg("Your Password or email are incorrect");
+        }
+    }
+console.log(localStorage);
+   useEffect(()=>{
+        getUserdata();
+   },[1])
     return(
         <>
         {/* <a href="https://lovepik.com/images/png-account.html">Account Png vectors by Lovepik.com</a> */}

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import dashbord_img from '../images/dashbord_img.png';
+console.log(localStorage)
+    let userName= localStorage.getItem("name")
+    
 const Dashboard = () =>{
     const logout = () =>{
-        // localStorage.clear();//it clear history of browser
+        localStorage.clear();//it clear history of browser
         window.location.href="#/login";//redirect to login page
         window.location.reload();//after goining to login page it will realod again
     }
@@ -10,7 +13,7 @@ const Dashboard = () =>{
         <>
         <div className="container-fluid">
             <div className="dash-header">
-                <h1>Welcome Back...!
+                <h1>Welcome Back...! <span className='u_name'>{userName}</span>
                 <span className='logout'>
                 <Link to="/userlist">
                 <button className='dash_button'>View All Users</button>

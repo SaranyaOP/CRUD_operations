@@ -66,8 +66,7 @@ const Register = () =>{
         fetch("http://localhost:1234/user",requestOptions)
         .then(response => response.text())
         .then(data =>{
-            setMsg("Craeted successfully");
-            savePass_Email();
+            setMsg("Created successfully");
             window.location.href="#/login";
             window.location.reload();
 
@@ -77,31 +76,12 @@ const Register = () =>{
             setMsg(<p className="text-danger">Please fill the form correctly</p>);
         }
     }
-    const savePass_Email = () =>{
-        let logInput = {
-            email:email,
-            password:password
-        }
-        const requestOptions = {
-            method:"POST",
-            headers:{"Content-Type" : "application/json"},
-            body:JSON.stringify(logInput)
-        }
-        fetch("http://localhost:1234/logindetails",requestOptions)
-        .then(response => response.text())
-        .then(data =>{
-            console.log("success");
-        })
-    }
+
     const Clear = () =>{
-        // setName("");
-        // setEmail("");
-        // setMobile("");
-        // setPassword("");
-        // setRpassword("");
+       
         window.location.reload();
     }
-    console.log("errorlist" + errorList +errorList.nameError);
+   
     return(
         <>
              <div className="container-fluid mybody">
